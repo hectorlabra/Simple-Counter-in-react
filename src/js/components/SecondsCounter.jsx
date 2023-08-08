@@ -7,16 +7,17 @@ import './SecondsCounter.css';
 class SecondsCounter extends Component {
   render() {
     const { seconds } = this.props;
-    const hours = Math.floor(seconds / 3600);
-    const minutes = Math.floor((seconds % 3600) / 60);
-    const remainingSeconds = seconds % 60;
+
+    const firstDigit = seconds % 10;
+    const secondDigit = Math.floor((seconds / 10) % 10);
+    const thirdDigit = Math.floor((seconds / 100) % 10);
 
     return (
       <div className="counter">
         <div className="time-box">
-          <div className="page">{hours}</div>
-          <div className="page">{minutes}</div>
-          <div className="page">{remainingSeconds}</div>
+          <div className="page">{thirdDigit}</div>
+          <div className="page">{secondDigit}</div>
+          <div className="page">{firstDigit}</div>
         </div>
         <div className="card text-center paper-effect">
           <div className="card-body">
